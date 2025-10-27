@@ -1,5 +1,6 @@
 import React from "react";
 import ProfileCard from "./ProfileCard";
+import { Link } from "react-router-dom";
 
 function ProfileGrid({ people, columns }) {
   const gridStyle = {
@@ -8,16 +9,26 @@ function ProfileGrid({ people, columns }) {
     gap: "20px",
   };
 
+  const linkStyle = {
+    textDecoration: "none",
+    color: "inherit",
+  };
+
   return (
     <div className="mt-4" style={gridStyle}>
       {people.map((person) => (
-        <ProfileCard
+        <Link
           key={person.id}
-          name={person.name}
-          email={person.email}
-          birthDate={person.birthDate}
-          phone={person.phone}
-        />
+          to={`/lab02/${person.id}`}
+          style={linkStyle}
+        >
+          <ProfileCard
+            name={person.name}
+            email={person.email}
+            birthDate={person.birthDate}
+            phone={person.phone}
+          />
+        </Link>
       ))}
     </div>
   );
