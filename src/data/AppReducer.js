@@ -16,6 +16,19 @@ export default function AppReducer(state, action) {
           : p
       );
 
+    case "add":
+      return [
+        ...state,
+        action.payload
+      ];
+
+    case "edit":
+      return state.map(p =>
+        p.id === action.payload.id 
+          ? action.payload
+          : p
+      );
+
     default:
       return state;
   }

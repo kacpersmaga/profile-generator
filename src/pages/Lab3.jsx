@@ -6,8 +6,7 @@ function Lab3() {
   return (
     <>
       <h1 className="mb-4">Laboratorium 3: Zarządzanie stanem</h1>
-    
-      <PeopleContainer data={people} element={ProfileItem} />
+      <PeopleContainer element={ProfileItem} />
     </>
   );
 }

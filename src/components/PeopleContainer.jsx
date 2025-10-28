@@ -1,24 +1,19 @@
-import { useReducer, useMemo } from "react";
+import { useContext } from "react";
 import { Row, Col } from "react-bootstrap";
-import AppReducer from "../data/AppReducer";
+import AppContext from "../data/AppContext";
 
-function PeopleContainer({ data, element: ElementComponent }) {
 
-  const initialState = useMemo(() => {
-    return data.map(person => ({
-      ...person,
-      rating: 0,
-      check: false
-    }));
-  }, [data]);
+function PeopleContainer({ element: ElementComponent }) {
+  
 
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+  const context = useContext(AppContext);
+  const items = context.items;
 
   return (
     <Row className="g-4">
-      {state.map(person => (
+      {items.map(person => (
         <Col key={person.id} xs={12} md={6} lg={4}>
-          <ElementComponent person={person} dispatch={dispatch} />
+          <ElementComponent person={person} />
         </Col>
       ))}
     </Row>
