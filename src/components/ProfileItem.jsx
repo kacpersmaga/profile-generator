@@ -1,11 +1,10 @@
 import { Card, Button, ButtonGroup, Stack, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import AppContext from "../data/AppContext";
+import useDispatch from "../data/useDispatch";
 import RatingBar from "./RatingBar";
 
 export default function ProfileItem({ person }) {
-  const { dispatch } = useContext(AppContext);
+  const dispatch = useDispatch();
 
   const { id, name, email, phone, birthDate, rating, check } = person;
 

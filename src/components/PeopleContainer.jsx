@@ -1,13 +1,9 @@
-import { useContext } from "react";
 import { Row, Col } from "react-bootstrap";
-import AppContext from "../data/AppContext";
-
+import useData from "../data/useData";
 
 function PeopleContainer({ element: ElementComponent }) {
   
-
-  const context = useContext(AppContext);
-  const items = context.items;
+  const items = useData();
 
   return (
     <Row className="g-4">
